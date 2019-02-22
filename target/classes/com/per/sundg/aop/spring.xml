@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+
+
+
+
+
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	
+	
+	<!-- 声明切面组件 -->
+		<bean id="aspectComponent" class="com.per.sundg.aop.aspect.AspectComponent"/>
+	<!-- 声明目标组件 -->
+		<bean id="testController" class="com.per.sundg.aop.controller.TestController"/>
+	<!-- 配置AOP -->
+		<aop:config>
+			<!-- 前置通知 -->
+				<aop:aspect ref="aspectComponent">
+					<aop:before method="one" pointcut="execution(public String findAll())"/>
+				</aop:aspect>
+			<!-- 后置通知 -->
+				<aop:aspect ref="aspectComponent">
+					<aop:after-returning method="two"
+					pointcut="within(com.per.sundg.aop.controller.TestController)"/>
+				</aop:aspect>
+				
+			<!-- 最终通知 -->
+				<aop:aspect ref="aspectComponent">
+					<aop:after method="three" 
+					pointcut="bean(testController)"/>
+				</aop:aspect>
+				
+			<!-- 异常通知 -->
+			 	<aop:aspect ref="aspectComponent">
+					<aop:after-throwing method="four" throwing="ex"
+					pointcut="within(com.per.sundg.aop.controller.*)"/>
+				</aop:aspect>
+			<!-- 环绕通知 -->
+				<aop:aspect ref="aspectComponent">
+					<aop:around method="five" pointcut="within(com.per.sundg.aop.controller..*)"/>
+				</aop:aspect>	
+		</aop:config>
+	
+	
+	
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+	<!-- Setter注入 -->
+	<bean id="emp" class="com.per.sundg.spring.day03.entity.Emp">
+		<property name="id" value="1001"/>
+		<property name="name">
+			<value>张三</value>
+		</property>
+	</bean>
+	
+	
+	<!-- 构造器注入 -->
+	<!-- 
+		index:构造器参数的索引值，下标从0开始
+	 -->
+	<bean id="dept" class="com.per.sundg.spring.day03.entity.Dept">
+		<constructor-arg index="0" type="java.lang.Integer" value="10"/>
+		<constructor-arg index="1" value="研发部"/>
+	</bean>
+	
+	
+	<!-- 自动装配 -->
+	<bean id="company" class="com.per.sundg.spring.day03.entity.Company"
+			autowire="constructor"/>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

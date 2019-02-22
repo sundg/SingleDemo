@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	
+	
+	
+	<!-- 声明Bean组件 -->
+	<bean id="user" class="com.per.sundg.spring.day01.entity.User"/>
+	
+	<!-- 通过构造器实例化Bean -->
+	<!-- 会自动调用无参构造器创建对象 -->
+	<!--如果bean定义为lazy-init="true"延迟加载或scope="prototype"多实例，
+		则bean对象在用到的时候实例化否则在容器启动的时候实例化-->
+	<bean id="gregorianCalendar" class="java.util.GregorianCalendar"/>
+	
+	<!-- 通过静态工厂方法实例化Bean -->
+	<!-- factory-method属性用于指定工厂中创建Bean对象的方法 -->
+	<bean id="calendar" class="java.util.Calendar" factory-method="getInstance"/>
+	
+	<!-- 通过实例工厂方法实例化Bean -->
+	<!-- factory-bean属性用于指定工厂Bean对象 -->
+	<bean id="date" factory-method="getTime" factory-bean="gregorianCalendar"/>
+	
+	<!-- Bean的作用域 -->
+	<bean id="userOne" class="com.per.sundg.spring.day01.entity.User" scope="singleton"/>
+	<bean id="userTwo" class="com.per.sundg.spring.day01.entity.User" scope="prototype"/>
+	
+	
+	<!-- Bean的生命周期 -->
+	<bean id="exampleBean" class="com.per.sundg.spring.day01.entity.ExampleBean"
+			init-method="init" destroy-method="destroy"
+			scope="prototype"/>
+			
+	<!--Bean的延迟实例化  -->
+	<bean id="example" class="com.per.sundg.spring.day01.entity.ExampleBean"
+		lazy-init="true"
+	/>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
