@@ -1,4 +1,3 @@
-/*
 package com.per.sundg.springboot;
 
 import org.springframework.boot.SpringApplication;
@@ -13,5 +12,3 @@ public class SpringbootApplication {
 	}
 
 }
-
-*/
