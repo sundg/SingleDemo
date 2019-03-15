@@ -11,13 +11,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
+/**
+ * BIO编程,存在线程阻塞问题
+ * @Author sundg
+ **/
 public class SocketServerDemo {
 
 	static int port = 1234;
 	static String charset = "UTF-8";
 	public static void main(String[] args) throws Exception {
-		testFive();
+		testOne();
 	}
 
 	/**
@@ -37,13 +40,25 @@ public class SocketServerDemo {
 		 * step5:关闭服务端
 		 */
 		ServerSocket server = new ServerSocket(port);
+		//此处会一直等到客户端连接才继续执行（线程阻塞）
+		System.out.println("等待客户端连接");
 		Socket socket = server.accept();
+		System.out.println("客户端已连接");
 		InputStream input = socket.getInputStream();
 		byte[] bytes = new byte[1024];
 		int len;
 		StringBuilder builder = new StringBuilder();
-		while((len = input.read(bytes)) != -1){
-			builder.append(new String(bytes,0,len,charset));
+		while(true){
+			// 循环读取数据
+			// read() 阻塞点
+			System.out.println("准备读取数据");
+			len = input.read(bytes);
+			System.out.println("数据已读取");
+			if (len != -1){
+				builder.append(new String(bytes,0,len,charset));
+			} else {
+				break;
+			}
 		}
 		System.out.println("接收到的请求:"+builder);
 		input.close();

@@ -9,12 +9,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SocketClientDemo {
-	static int port = 1234;
+	static int port = 9999;
 	static String host ="127.0.0.1";
 	static String charset = "UTF-8"; 
 	
 	public static void main(String[] args) throws Exception {
-		testFour();
+		for (int i=0;i<20;i++){
+			testOne();
+
+		}
 	}
 	
 	/**

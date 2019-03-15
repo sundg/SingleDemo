@@ -24,7 +24,7 @@ public class AspectComponentForAnnotation {
 		System.out.println("最终通知");
 	}
 
-	@AfterThrowing(throwing="ex",pointcut="within(com.sdg.controller.*)")
+	@AfterThrowing(throwing="ex",pointcut="within(com.per.sundg.aop.controller.*)")
 	public void four(Exception ex){
 		System.out.println("异常通知");
 
