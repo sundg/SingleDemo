@@ -9,7 +9,8 @@ public class Message {
 
     private MessageBuffer messageBuffer = null;
 
-    public long socketId = 0; // the id of source socket or destination socket, depending on whether is going in or out.
+    // the id of source socket or destination socket, depending on whether is going in or out.
+    public long socketId = 0;
 
     public byte[] sharedArray = null;
     public int    offset      = 0; //offset into sharedArray where this message data starts.

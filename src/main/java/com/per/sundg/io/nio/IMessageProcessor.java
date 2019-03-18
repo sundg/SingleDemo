@@ -5,6 +5,6 @@ package com.per.sundg.io.nio;
  */
 public interface IMessageProcessor {
 
-    public void process(Message message, WriteProxy writeProxy);
+    void process(Message message, WriteProxy writeProxy);
 
 }
