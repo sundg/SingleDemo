@@ -1,5 +1,7 @@
 package com.per.sundg.jdk;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * <br>
  *
@@ -12,7 +14,16 @@ package com.per.sundg.jdk;
 public class String {
 
     public static void main(String[] args) {
+        java.lang.String str1 = "1";
+        java.lang.String str2 = new java.lang.String("1");
+        System.out.println(str1 == str2);
+    }
 
+    @Test
+    public void test(){
+        java.lang.String str1 = "1";
+        java.lang.String str2 = new java.lang.String("1");
+        System.out.println(str1 == str2);
     }
 
 

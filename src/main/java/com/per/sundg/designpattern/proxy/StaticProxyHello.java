@@ -20,6 +20,7 @@ package com.per.sundg.designpattern.proxy;
  */
 public class StaticProxyHello implements IHello {
 
+    //维护一个目标对象
     private Hello hello;
 
     public StaticProxyHello(Hello hello) {
@@ -28,7 +29,7 @@ public class StaticProxyHello implements IHello {
 
     @Override
     public void say() {
-        //TODO 代理类自身的逻辑
+        //代理类自身的逻辑
         System.out.println("代理类开始调用");
         hello.say();
         System.out.println("代理类结束调用");
