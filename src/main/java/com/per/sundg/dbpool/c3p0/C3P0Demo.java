@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Console;
 import cn.hutool.core.util.XmlUtil;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.log4j.Logger;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.w3c.dom.Document;
 
 import javax.xml.xpath.XPathConstants;

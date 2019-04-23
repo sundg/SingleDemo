@@ -1,6 +1,6 @@
 package com.per.sundg.base;
 
-import org.junit.jupiter.api.Test;
+
 
 /**
  * <br>
@@ -12,7 +12,8 @@ import org.junit.jupiter.api.Test;
  * @Date 2019/3/22 10:16
  * @VERSION 1.0
  */
-/*public class A implements A.IB {
+/*
+public class CyclicInheritance implements CyclicInheritance.IB {
 
     public static void main(String[] args) {
 
@@ -32,4 +33,5 @@ import org.junit.jupiter.api.Test;
     public interface IB{
         int get();
     }
-}*/
+}
+*/

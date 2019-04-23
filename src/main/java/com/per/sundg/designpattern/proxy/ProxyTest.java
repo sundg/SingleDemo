@@ -1,7 +1,7 @@
 package com.per.sundg.designpattern.proxy;
 
 import com.per.sundg.jdk.stream.Hero;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * <br>

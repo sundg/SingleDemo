@@ -2,7 +2,7 @@ package com.per.sundg.jdk.stream;
 
 
 import org.apache.log4j.Logger;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.lang.Integer;
 import java.util.*;

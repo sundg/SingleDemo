@@ -1,7 +1,7 @@
 package com.per.sundg.dbpool.druid;
 
 import com.per.sundg.dbpool.c3p0.C3P0Demo;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * <br>

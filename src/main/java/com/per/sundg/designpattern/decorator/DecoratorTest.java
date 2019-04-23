@@ -1,6 +1,7 @@
 package com.per.sundg.designpattern.decorator;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 /**
  * <br>

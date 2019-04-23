@@ -2,7 +2,7 @@ package com.per.sundg.aop.test;
 
 import com.per.sundg.aop.controller.TestController;
 import com.per.sundg.aop.controller.TestControllerForAnnotation;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

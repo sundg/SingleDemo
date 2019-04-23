@@ -2,11 +2,11 @@ package com.per.sundg.io.nio.test;
 
 import com.per.sundg.io.nio.http.HttpHeaders;
 import com.per.sundg.io.nio.http.HttpUtil;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by jjenkov on 19-10-2015.

@@ -1,6 +1,7 @@
 package com.per.sundg.io.nio.test;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

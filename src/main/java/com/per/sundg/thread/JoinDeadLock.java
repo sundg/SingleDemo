@@ -1,6 +1,5 @@
 package com.per.sundg.thread;
 
-import org.junit.jupiter.api.Test;
 
 /**
  * <br>

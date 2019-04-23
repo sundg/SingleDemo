@@ -3,7 +3,7 @@ package com.per.sundg.spring.day03;
 import com.per.sundg.spring.day03.entity.Company;
 import com.per.sundg.spring.day03.entity.Dept;
 import com.per.sundg.spring.day03.entity.Emp;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

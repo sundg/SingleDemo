@@ -4,7 +4,7 @@ import com.per.sundg.spring.day04.entity.Manager;
 import com.per.sundg.spring.day04.entity.Programmer;
 import com.per.sundg.spring.day04.entity.Student;
 import com.per.sundg.spring.day04.entity.Teacher;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

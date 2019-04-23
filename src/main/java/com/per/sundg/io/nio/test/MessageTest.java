@@ -2,12 +2,12 @@ package com.per.sundg.io.nio.test;
 
 import com.per.sundg.io.nio.Message;
 import com.per.sundg.io.nio.MessageBuffer;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import org.junit.Test;
 
 import java.nio.ByteBuffer;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 
 /**

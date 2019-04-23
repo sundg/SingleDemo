@@ -2,9 +2,9 @@ package com.per.sundg.io.nio.test;
 
 import com.per.sundg.io.nio.Message;
 import com.per.sundg.io.nio.MessageBuffer;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 /**
  * Created by jjenkov on 18-10-2015.
