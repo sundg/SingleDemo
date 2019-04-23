@@ -6,9 +6,8 @@ package com.per.sundg.jdk.stream;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collector;
 
 /**
  * @Classname Collectors
@@ -37,33 +36,79 @@ public class Collectors {
 
   @Test
   public void test() {
-    User user1 = new User("zhangsan", "beijing", 10);
-    User user2 = new User("zhangsan", "beijing", 20);
-    User user3 = new User("lisi", "shanghai", 30);
-    List<User> list = new ArrayList<User>();
-    list.add(user1);
-    list.add(user2);
-    list.add(user3);
+    List<User> list = generateUser();
+
     Map<String, List<User>> collect = list.stream().collect(java.util.stream.Collectors.groupingBy(e -> fetchGroupKey(e)));
-    //{zhangsan#beijing=[User{age=10, name='zhangsan', address='beijing'}, User{age=20, name='zhangsan', address='beijing'}],
-    // lisi#shanghai=[User{age=30, name='lisi', address='shanghai'}]}
-    System.out.println(collect);
+    Set<Map.Entry<String, List<User>>> entries = collect.entrySet();
+    for (Map.Entry<String,List<User>> entry : entries) {
+      List<User> users = entry.getValue();
+      int count =0;
+      for (User user :users){
+        count += Integer.parseInt(user.getAge());
+      }
+      System.out.println(entry.getKey() +"   "+ count);
+    }
   }
   private static String fetchGroupKey(User user){
     return user.getName() +"#"+ user.getAddr();
   }
 
 
+  /**
+   * @author sundg
+   * @date 2019/4/23 17:29
+   * @description 对同一对象的多个字段进行分组，并且按某一个字段进行求和
+   * @return : void
+   */
+  @Test
+  public void test1(){
+    List<User> users = generateUser();
+    users.stream().collect(java.util.stream.Collectors.groupingBy(user ->new User(user.getName(),user.getAddr()),
+        java.util.stream.Collectors.summarizingInt(user -> Integer.parseInt(user.age))))
+        .forEach((k,v)->{
+          long sum = v.getSum();
+          k.age = sum+"";
+          System.out.println(k);
+          //System.out.println(v);
+        });
+  }
+
+
+  private List<User> generateUser(){
+    User user1 = new User("zhangsan", "beijing", 10+"","1");
+    User user2 = new User("zhangsan", "beijing", 20+"","2");
+    User user3 = new User("lisi", "shanghai", 30+"","3");
+    User user4 = new User("lisi", "shanghai", 60+"","4");
+    List<User> list = new ArrayList<User>();
+    list.add(user1);
+    list.add(user2);
+    list.add(user3);
+    list.add(user4);
+    return list;
+  }
   static class User {
 
     private String name;
     private String addr;
-    private int age ;
+    private String age ;
+    private String add ;
 
-    public User(String name, String addr, int age) {
+    public User(String name, String addr, String age,String add) {
       this.name = name;
       this.addr = addr;
       this.age = age;
+      this.add = add;
+    }
+
+    public User(String name, String addr, String add) {
+      this.name = name;
+      this.addr = addr;
+      this.add = add;
+    }
+
+    public User(String name, String addr) {
+      this.name = name;
+      this.addr = addr;
     }
 
     public String getName() {
@@ -82,12 +127,46 @@ public class Collectors {
       this.addr = addr;
     }
 
-    public int getAge() {
+    public String getAge() {
       return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
       this.age = age;
+    }
+
+    public String getAdd() {
+      return add;
+    }
+
+    public void setAdd(String add) {
+      this.add = add;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      User user = (User) o;
+      return age == user.age &&
+          Objects.equals(name, user.name) &&
+          Objects.equals(addr, user.addr) &&
+          Objects.equals(add, user.add);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(name, addr, age, add);
+    }
+
+    @Override
+    public String toString() {
+      return "User{" +
+          "name='" + name + '\'' +
+          ", addr='" + addr + '\'' +
+          ", age=" + age +
+          ", add='" + add + '\'' +
+          '}';
     }
   }
 }
