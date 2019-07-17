@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN" 
+	"http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+
+<configuration>
+	<environments default="mysql">
+		<!--mysql-->
+		<environment id="mysql">
+			<!--JDBC提交和回滚机制-->
+			<transactionManager type="JDBC"/>
+			<!--JDBC链接对象的数据源连接池的实现-->
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://192.168.0.3:3306/gcl"/>
+				<property name="username" value="root"/>
+				<property name="password" value="123456"/>
+			</dataSource>
+		</environment>
+		<!--oracle-->
+	</environments>
+	<mappers>
+		<mapper resource="com/per/sundg/mybatis/caseone/UserMapper.xml"/>
+	</mappers>
+</configuration>
+
+
+
+

@@ -15,12 +15,15 @@ import java.sql.SQLException;
  * @VERSION 1.0
  */
 public class DruidDao {
+
     public void insert(String sql){
-        DBPoolConnection dbp = DBPoolConnection.getInstance();    //获取数据连接池单例
+        //获取数据连接池单例
+        DbPoolConnection dbp = DbPoolConnection.getInstance();
         DruidPooledConnection conn = null;
         PreparedStatement ps = null;
         try {
-            conn = dbp.getConnection();    //从数据库连接池中获取数据库连接
+            //从数据库连接池中获取数据库连接
+            conn = dbp.getConnection();
             ps = conn.prepareStatement(sql);
             ps.executeUpdate();
         } catch (SQLException e) {

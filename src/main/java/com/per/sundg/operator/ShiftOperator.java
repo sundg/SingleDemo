@@ -1,11 +1,15 @@
 package com.per.sundg.operator;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 /**
  * @Classname ShiftOperator
  * @Description 移位操作
  * @Date 2019/4/8 17:03
  * @Created sundg
  */
+@Slf4j
 public class ShiftOperator {
 
 
@@ -38,5 +42,18 @@ public class ShiftOperator {
     System.out.println(m);
     n = i >>> 1;
     System.out.println(n);
+  }
+
+  @Test
+  public void test(){
+    int max = 10;
+    int min = 0;
+    int n = 5;
+    int m = 1;
+    if (max-min > n*m){
+      log.info("ok");
+    } else {
+      log.info("fail");
+    }
   }
 }

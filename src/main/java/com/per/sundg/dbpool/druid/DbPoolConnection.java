@@ -19,8 +19,8 @@ import java.util.Properties;
  * @Date 2019/3/6 14:27
  * @VERSION 1.0
  */
-public class DBPoolConnection {
-    private static DBPoolConnection dbPoolConnection = null;
+public class DbPoolConnection {
+    private static DbPoolConnection dbPoolConnection = null;
     private static DruidDataSource druidDataSource = null;
     static {
         Properties properties = loadPropertiesFile("druid.properties");
@@ -35,9 +35,9 @@ public class DBPoolConnection {
      * 数据库连接池单例
      * @return
      */
-    public static synchronized DBPoolConnection getInstance(){
+    public static synchronized DbPoolConnection getInstance(){
         if (null == dbPoolConnection){
-            dbPoolConnection = new DBPoolConnection();
+            dbPoolConnection = new DbPoolConnection();
         }
         return dbPoolConnection;
     }
@@ -51,7 +51,7 @@ public class DBPoolConnection {
         return druidDataSource.getConnection();
     }
     /**
-     * @param string 配置文件名
+     * @param fullFile 配置文件名
      * @return Properties对象
      */
     private static Properties loadPropertiesFile(String fullFile) {
@@ -59,8 +59,7 @@ public class DBPoolConnection {
         if (null == fullFile || fullFile.equals("")){
             throw new IllegalArgumentException("Properties file path can not be null" + fullFile);
         }
-        webRootPath = DBPoolConnection.class.getClassLoader().getResource("").getPath();
-       // webRootPath = new File(webRootPath).getParent();
+        webRootPath = DbPoolConnection.class.getClassLoader().getResource("").getPath();
         InputStream inputStream = null;
         Properties p =null;
         try {

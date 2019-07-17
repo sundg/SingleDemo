@@ -25,7 +25,7 @@ public class FilePathDemo {
         System.out.println(f);
 
         // 获取当前类的所在工程路径; 如果不加“/”  获取当前类的加载目录  D:\git\daotie\daotie\target\classes\my
-        File f2 = new File(this.getClass().getResource("").getPath());
+        File f2 = new File(this.getClass().getResource("FilePathDemo.class").getPath());
         System.out.println(f2);
 
         // 第二种：获取项目路径    D:\git\daotie\daotie

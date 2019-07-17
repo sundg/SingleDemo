@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import javax.xml.xpath.XPathConstants;
 import java.beans.PropertyVetoException;
 import java.io.File;
 import java.io.FileInputStream;
